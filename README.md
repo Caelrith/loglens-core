@@ -69,6 +69,7 @@ This library is the engine behind **LogLens**, a terminal-based log explorer tha
 
 **[Install LogLens via Homebrew](https://getloglens.com)**
 ```bash
+brew tap Caelrith/loglens
 brew install loglens
 ```
 
