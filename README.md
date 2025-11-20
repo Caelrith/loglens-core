@@ -1,32 +1,31 @@
-LogLens Core 🔍
+# LogLens Core 🔍
 
-The lightning-fast, structured log parsing engine built in Rust.
+[![Crates.io](https://img.shields.io/crates/v/loglens-core.svg)](https://crates.io/crates/loglens-core)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-loglens-core is a high-performance library designed to parse, query, and analyze structured logs (JSON, Logfmt) at scale. It powers the LogLens CLI.
+**The lightning-fast, structured log parsing engine built in Rust.**
 
-🚀 Features
+`loglens-core` is a high-performance library designed to parse, query, and analyze structured logs (JSON, Logfmt) at scale. It powers the [LogLens CLI](https://getloglens.com).
 
-Zero-Config Parsing: Automatically detects and parses JSON or Logfmt lines without manual schema definition.
+## 🚀 Features
 
-Structured Query Engine: Filter logs with complex logic using a familiar syntax: level == "error" && latency > 500.
+* **Zero-Config Parsing:** Automatically detects and parses JSON or Logfmt lines without manual schema definition.
+* **Structured Query Engine:** Filter logs with complex logic using a familiar syntax: `level == "error" && latency > 500`.
+* **High Throughput:** Optimized for reading gigabytes of logs in seconds, making it suitable for high-volume production environments.
+* **Time-Aware:** Native understanding of timestamps for time-range filtering.
 
-High Throughput: Optimized for reading gigabytes of logs in seconds, making it suitable for high-volume production environments.
+## 📦 Installation
 
-Time-Aware: Native understanding of timestamps for time-range filtering.
+Add this to your `Cargo.toml`:
 
-📦 Installation
-
-Add this to your Cargo.toml:
-
+```toml
 [dependencies]
 loglens-core = "0.1.0"
+```
 
+## ⚡ Usage Example
 
-⚡ Usage Example
-
-Here is how you can use loglens-core to parse a log line and run a structured query against it:
-
-use loglens_core::{evaluate, LogEntry, parsers::parse_log_line};
+Here is how you can use `loglens-core` to parse a log line and run a structured query against it:
 
 ```rust
 use loglens_core::{evaluate, LogEntry, parsers::parse_log_line};
@@ -57,29 +56,26 @@ fn main() {
 }
 ```
 
+## 🖥️ Want the full CLI experience?
 
+This library is the engine behind **LogLens**, a terminal-based log explorer that replaces `jq` and `tail -f` with a powerful TUI.
 
-🖥️ Want the full CLI experience?
+![LogLens TUI](https://getloglens.com/blog/post1/watch2.png)
 
-This library is the engine behind LogLens, a terminal-based log explorer that replaces jq and tail -f with a powerful TUI.
+**LogLens Pro** features:
+* 📊 **Interactive TUI:** Filter and explore logs with keyboard shortcuts.
+* 👀 **Live Watch:** Real-time filtering and highlighting (`loglens watch`).
+* 📈 **Instant Stats:** Automatic field analysis and error rate calculation.
 
-LogLens Pro features:
-
-📊 Interactive TUI: Filter and explore logs with keyboard shortcuts.
-
-👀 Live Watch: Real-time filtering and highlighting (loglens watch).
-
-📈 Instant Stats: Automatic field analysis and error rate calculation.
-
-Install LogLens via Homebrew
-
+**[Install LogLens via Homebrew](https://getloglens.com)**
+```bash
 brew install loglens
+```
 
-
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-📄 License
+## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
