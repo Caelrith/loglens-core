@@ -60,7 +60,7 @@ fn main() {
 
 This library is the engine behind **LogLens**, a terminal-based log explorer that replaces `jq` and `tail -f` with a powerful TUI.
 
-![LogLens TUI](https://getloglens.com/blog/post1/watch2.png)
+![LogLens TUI](https://github.com/user-attachments/assets/7d8244cc-1c49-46f8-9454-df26ba209a6f)
 
 **LogLens Pro** features:
 * 📊 **Interactive TUI:** Filter and explore logs with keyboard shortcuts.
