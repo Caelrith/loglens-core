@@ -5,7 +5,7 @@
 
 **The lightning-fast, structured log parsing engine built in Rust.**
 
-`loglens-core` is a high-performance library designed to parse, query, and analyze structured logs (JSON, Logfmt) at scale. It powers the [LogLens CLI](https://getloglens.com).
+`loglens-core` is a high-performance library designed to parse, query, and analyze structured logs (JSON, Nginx, Logfmt) at scale. It powers the [LogLens CLI](https://getloglens.com).
 
 ## 🚀 Features
 
