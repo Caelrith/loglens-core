@@ -28,6 +28,9 @@ Here is how you can use loglens-core to parse a log line and run a structured qu
 
 use loglens_core::{evaluate, LogEntry, parsers::parse_log_line};
 
+```rust
+use loglens_core::{evaluate, LogEntry, parsers::parse_log_line};
+
 fn main() {
     // A sample JSON log line
     let log_line = r#"{"level": "error", "latency": 502, "msg": "Database timeout", "timestamp": "2023-10-27T10:00:00Z"}"#;
@@ -52,6 +55,8 @@ fn main() {
         println!("Could not parse as structured log.");
     }
 }
+```
+
 
 
 🖥️ Want the full CLI experience?
