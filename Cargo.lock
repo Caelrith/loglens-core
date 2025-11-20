@@ -140,7 +140,7 @@ checksum = "879777f0cc6f3646a044de60e4ab98c75617e3f9580f7a2032e6ad7ea0cd3054"
 
 [[package]]
 name = "loglens-core"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "chrono",
  "humantime",
@@ -148,6 +148,7 @@ dependencies = [
  "regex",
  "serde",
  "serde_json",
+ "wasm-bindgen",
 ]
 
 [[package]]

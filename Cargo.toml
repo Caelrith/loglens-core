@@ -3,16 +3,16 @@ name = "loglens-core"
 version = "0.1.1"
 edition = "2021"
 license = "MIT"
-
-# --- REQUIRED METADATA ---
 description = "A lightning-fast, structured log parsing and query engine (JSON/Logfmt). Powers the LogLens CLI."
 repository = "https://github.com/Caelrith/loglens-core"
 homepage = "https://getloglens.com"
 documentation = "https://docs.rs/loglens-core"
-
-# Helps people find you on crates.io
 keywords = ["log", "parser", "json", "logfmt", "query"]
 categories = ["parsing", "command-line-interface"]
+
+# --- NEW: Add 'cdylib' crate type for WASM ---
+[lib]
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
@@ -21,3 +21,13 @@ logfmt = "0.0.2"
 regex = "1.10"
 chrono = { version = "0.4", features = ["serde"] }
 humantime = "2.1"
+
+# --- NEW: WASM Dependency (Optional) ---
+[dependencies.wasm-bindgen]
+version = "0.2"
+optional = true
+
+[features]
+default = []
+# We create a 'wasm' feature so we only compile this for the web
+wasm = ["dep:wasm-bindgen"]
