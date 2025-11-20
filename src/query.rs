@@ -1,4 +1,4 @@
-// File: src/pro/query_engine.rs
+// File: src/query.rs
 
 use crate::time as time_parser;
 use serde_json::Value;
@@ -241,6 +241,24 @@ fn evaluate_single_condition(
             return match op_str {
                 "~=" => Ok(compare_values(log_value, query_value_str, true) == Some(std::cmp::Ordering::Equal)),
                 "!~=" => Ok(compare_values(log_value, query_value_str, true) != Some(std::cmp::Ordering::Equal)),
+                
+                // --- ADDED: Support for 'contains' on specific fields ---
+                "contains" => {
+                    let query_clean = query_value_str.trim().trim_matches(|c| c == '"' || c == '\'');
+                    match log_value {
+                        Value::String(s) => Ok(s.contains(query_clean)),
+                        _ => Ok(false), // Non-string fields cannot "contain" a substring
+                    }
+                },
+                "!contains" => {
+                    let query_clean = query_value_str.trim().trim_matches(|c| c == '"' || c == '\'');
+                    match log_value {
+                        Value::String(s) => Ok(!s.contains(query_clean)),
+                        _ => Ok(true), // If it's not a string, it technically doesn't contain the substring
+                    }
+                },
+                // --------------------------------------------------------
+
                 "==" | "is" => Ok(compare_values(log_value, query_value_str, false) == Some(std::cmp::Ordering::Equal)),
                 "!=" | "isnot" => Ok(compare_values(log_value, query_value_str, false) != Some(std::cmp::Ordering::Equal)),
                 ">" => Ok(compare_values(log_value, query_value_str, false) == Some(std::cmp::Ordering::Greater)),
