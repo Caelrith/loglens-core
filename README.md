@@ -40,7 +40,7 @@ fn main() {
 
     // 2. Define a query
     // Returns true if latency is greater than 500 AND level is "error"
-    let query = "latency > 500 && level == \"error\"";
+    let query = "latency > 500 && level is error";
     
     // 3. Evaluate the query against the parsed entry
     if let LogEntry::Structured(value) = entry {
